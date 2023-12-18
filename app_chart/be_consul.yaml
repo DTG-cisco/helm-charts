@@ -1,0 +1,83 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+  namespace: app
+  labels:
+    app: backend
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: backend
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: backend
+  namespace: app
+automountServiceAccountToken: true
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  namespace: app
+  labels:
+    app: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      service: backend
+      app: backend
+  template:
+    metadata:
+      labels:
+        service: backend
+        app: backend
+      annotations:
+        consul.hashicorp.com/connect-inject: "true"
+    spec:
+      serviceAccountName: backend
+      containers:
+        - name: backend
+#          image: blueguys/class-schedule-backend:latest
+          image: stratiiv/devops-team-green:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - name: "PG_HOST"
+              value: "1.1.1.1"
+            - name: "PG_PORT"
+              value: "5432"
+            - name: "PG_DB_NAME"
+              value: "schedule"
+            - name: "PG_USER"
+              value: "schedule"
+            - name: "PG_PASS"
+              value: " "
+            - name: "REDIS_HOST"
+              value: "localhost"
+            - name: "REDIS_PORT"
+              value: "6379"
+            - name: "MONGO_HOST"
+              value: "localhost"
+            - name: "MONGO_PORT"
+              value: "27017"
+            - name: "MONGO_DB_NAME"
+              value: "schedules"
+        - name: "redis"
+          image: "redis:7-alpine"
+          ports:
+            - containerPort: 6379
+---
+apiVersion: consul.hashicorp.com/v1alpha1
+kind: ServiceDefaults
+metadata:
+  name: backend # will be in serv.consul
+  namespace: app
