@@ -48,6 +48,9 @@ server:
 connectInject:
   enabled: true
   default: true
+  apiGateway:
+    managedGatewayClass:
+      serviceType: LoadBalancer
 controller:
   enabled: true
 
@@ -55,3 +58,4 @@ controller:
 #meshGateway:
 #  enabled: true
 #  replicas: 1
+

@@ -1,0 +1,15 @@
+apiVersion: v1
+entries:
+  fe_be_chart:
+  - apiVersion: v2
+    appVersion: 0.1.2
+    created: "2023-12-19T17:52:36.695585415+02:00"
+    description: A Helm chart for Kubernetes, Frontback And Backend are successfully
+      running.
+    digest: 89a5876477a32a2798c880d99792af918beecfef34d4a79750eddba39244ad18
+    name: fe_be_chart
+    type: application
+    urls:
+    - fe_be_chart-0.0.1.tgz
+    version: 0.0.1
+generated: "2023-12-19T17:52:36.694870522+02:00"
