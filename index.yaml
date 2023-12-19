@@ -10,6 +10,6 @@ entries:
     name: fe_be_chart
     type: application
     urls:
-    - fe_be_chart-0.0.1.tgz
+    - packages/fe_be_chart-0.0.1.tgz
     version: 0.0.1
 generated: "2023-12-19T17:52:36.694870522+02:00"
