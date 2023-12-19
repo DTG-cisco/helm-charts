@@ -8,8 +8,16 @@ The chart can be utilized either manually or in conjunction with Terragrunt.
 
 ### Add Helm Repository
 ```bash
-helm repo add my-repo-name https://DTG-cisco/github.io/helm-charts/
+helm repo add my-consul  https://dtg-cisco.github.io/helm-charts/
 ```
+#### Get list of available versions:
+```shell
+helm search repo my-consul
+```
+| NAME                   | CHART VERSION |  APP VERSION |  DESCRIPTION    | 
+|------------------------|---------------|--------------|-----------------|
+| my-consul/fe_be_chart  |   0.0.1       |    0.1.2     |  A Helm chart for Kubernetes, Frontback And Back...|
+
 
 ### Install the Chart
 ```shell

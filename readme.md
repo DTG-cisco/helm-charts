@@ -7,17 +7,21 @@
 
 ### How to use
 ```shell
-helm repo add schedule-app  https://vitalikys.github.io/chart/
+helm repo add schedule-app  https://dtg-cisco.github.io/helm-charts/
 ```
 
-Get list of available versions:
+#### Get list of available versions:
 ```shell
 helm search repo schedule-app
 ```
+In list of available versions select needed:
+
+| NAME                      | CHART VERSION |  APP VERSION |  DESCRIPTION    | 
+|---------------------------|---------------|--------------|-----------------|
+| schedule-app/fe_be_chart   |   0.0.1       |    0.1.2     |  A Helm chart for Kubernetes, Frontback And Back...|
+
 
 ### How to create new version
-Create new Helm Chart revision in 
-
 
 Make package from Chart to .tgz zip
 ```shell
