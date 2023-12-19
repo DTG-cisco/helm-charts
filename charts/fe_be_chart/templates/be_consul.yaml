@@ -2,14 +2,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend-service
+  name: backend
   namespace: app
   labels:
     app: backend
 spec:
   type: ClusterIP
   ports:
-    - port: 8080
+    - name: http
+      protocol: TCP
+      port: 8080
       targetPort: 8080
   selector:
     app: backend
@@ -32,27 +34,25 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      service: backend
       app: backend
   template:
     metadata:
       labels:
-        service: backend
         app: backend
       annotations:
         consul.hashicorp.com/connect-inject: "true"
+#        consul.hashicorp.com/transparent-proxy: "false"
     spec:
       serviceAccountName: backend
       containers:
         - name: backend
-#          image: blueguys/class-schedule-backend:latest
           image: stratiiv/devops-team-green:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
           env:
             - name: "PG_HOST"
-              value: "1.1.1.1"
+              value: "localhost"
             - name: "PG_PORT"
               value: "5432"
             - name: "PG_DB_NAME"
@@ -60,7 +60,7 @@ spec:
             - name: "PG_USER"
               value: "schedule"
             - name: "PG_PASS"
-              value: " "
+              value: "schedule"
             - name: "REDIS_HOST"
               value: "localhost"
             - name: "REDIS_PORT"
@@ -71,13 +71,28 @@ spec:
               value: "27017"
             - name: "MONGO_DB_NAME"
               value: "schedules"
-        - name: "redis"
+
+        - name: redis
           image: "redis:7-alpine"
           ports:
             - containerPort: 6379
+
+        - name: postgres
+          image: "postgres:14-alpine"
+          ports:
+            - containerPort: 5432
+          env:
+             - name: "POSTGRES_DB"
+               value: "schedule"
+             - name: "POSTGRES_USER"
+               value: "schedule"
+             - name: "POSTGRES_PASSWORD"
+               value: "schedule"
 ---
 apiVersion: consul.hashicorp.com/v1alpha1
 kind: ServiceDefaults
 metadata:
   name: backend # will be in serv.consul
   namespace: app
+spec:
+  protocol: "http"
