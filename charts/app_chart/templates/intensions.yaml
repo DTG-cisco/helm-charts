@@ -7,7 +7,7 @@ metadata:
 
 spec:
   destination:
-    name: frontend
+    name: backend
   sources:
-    - name: backend
+    - name: frontend
       action: allow

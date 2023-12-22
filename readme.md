@@ -18,20 +18,21 @@ helm search repo schedule-app
 ```
 In list of available versions select needed:
 
-| NAME                   | CHART VERSION |  APP VERSION |  DESCRIPTION    | 
-|------------------------|---------------|--------------|-----------------|
-| schedule-app/app_chart |   0.0.1       |    0.1.2     |  A Helm chart for Kubernetes, Frontback And Back...|
+| NAME                     | CHART VERSION | APP VERSION | DESCRIPTION                                        | 
+|--------------------------|---------------|-------------|----------------------------------------------------|
+| schedule-app/app_chart   | 0.0.2         | 0.1.2       | Frontback And Backend (Local PSQL DB) are succe... |
+| schedule-app/fe_be_chart | 0.0.1         | 0.1.2       | A Helm chart for Kubernetes, Frontback And Back... |
 
 
 ### Install the Chart
 ```shell
 helm install <my-release-name> <my-repo-name>/<chart-name>
-helm install schedule-app charts/app_chart
+helm install ver2 schedule-app/app_chart
 ```
 
 ### Configuration
 ```bash
-helm install my-release-name my-repo-name/chart-name --set key1=value1,key2=value2
+helm install <my-release-name> <my-repo-name>/<chart-name> --set key1=value1,key2=value2
 ```
 
 ### Upgrade or Uninstall

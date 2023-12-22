@@ -7,7 +7,7 @@ metadata:
 spec:
   # Defines the gateway listener.
   parentRefs:
-  - name: api-gateway
+  - name: gateway-front
   # Rules define behaviors for network traffic that goes through the route.
   rules:
   - matches:
@@ -17,6 +17,6 @@ spec:
     # Defines the backend service.
     backendRefs:
     - kind: Service
-      name: backend
+      name: frontend
       namespace: app
-      port: 8080
+      port: 80

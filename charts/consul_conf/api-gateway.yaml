@@ -3,7 +3,7 @@ apiVersion: gateway.networking.k8s.io/v1beta1
 # The Gateway is the main infrastructure resource that links API gateway components.
 kind: Gateway
 metadata:
-  name: api-gateway
+  name: gateway-front
   namespace: consul
 spec:
   gatewayClassName: consul
@@ -15,4 +15,4 @@ spec:
     name: http
     allowedRoutes:
       namespaces:
-        from: Same
+        from: All

@@ -1,0 +1,12 @@
+---
+apiVersion: consul.hashicorp.com/v1alpha1
+kind: ServiceIntentions
+metadata:
+  name: gateway-front
+# Allow traffic from api-gateway to frontend
+spec:
+  destination:
+    name: frontend
+  sources:
+    - name: gateway-front
+      action: allow
