@@ -22,7 +22,7 @@ helm search repo my-consul
 ### Install the Chart
 ```shell
 helm install my-release-name my-repo-name/chart-name
-helm install my-release-name charts/fe_be_chart
+helm install my-release-name charts/app_chart
 ```
 
 ### Configuration
@@ -37,4 +37,19 @@ helm upgrade my-release-name my-repo-name/chart-name
 
 # Uninstall
 helm uninstall my-release-name
+```
+
+------------------------------
+### How to create new version
+
+Make package from Chart to .tgz zip
+```shell
+helm package charts/app_chart/ -d  packages/
+```
+Successfully packaged chart and saved it to: packages/fe_be_chart-0.0.1.tgz
+
+
+Generate index.yaml:
+```shell
+helm repo index .
 ```

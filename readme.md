@@ -1,11 +1,13 @@
 ## Helm Chart Repositories for Kubernetes
 
 ### List of available Charts in this repo:
-- ### [Frontend and Backend Chart together in consul](charts/fe_be_chart/Readme.md)
-- ### [Frontend Chart]()
-- ### [Backend Chart]()
+- ### [Frontend and Backend Chart for consul](charts/app_chart/Readme.md)
+- ### [Consul Configs](charts/consul_conf)
 
-### How to use
+## How to use
+You can follow [Helm Docs](https://helm.sh/docs/intro/quickstart/) 
+
+### Add Helm Repository
 ```shell
 helm repo add schedule-app  https://dtg-cisco.github.io/helm-charts/
 ```
@@ -16,21 +18,28 @@ helm search repo schedule-app
 ```
 In list of available versions select needed:
 
-| NAME                      | CHART VERSION |  APP VERSION |  DESCRIPTION    | 
-|---------------------------|---------------|--------------|-----------------|
-| schedule-app/fe_be_chart   |   0.0.1       |    0.1.2     |  A Helm chart for Kubernetes, Frontback And Back...|
+| NAME                   | CHART VERSION |  APP VERSION |  DESCRIPTION    | 
+|------------------------|---------------|--------------|-----------------|
+| schedule-app/app_chart |   0.0.1       |    0.1.2     |  A Helm chart for Kubernetes, Frontback And Back...|
 
 
-### How to create new version
-
-Make package from Chart to .tgz zip
+### Install the Chart
 ```shell
-helm package charts/fe_be_chart/ -d  packages/
+helm install <my-release-name> <my-repo-name>/<chart-name>
+helm install schedule-app charts/app_chart
 ```
-Successfully packaged chart and saved it to: packages/fe_be_chart-0.0.1.tgz
 
+### Configuration
+```bash
+helm install my-release-name my-repo-name/chart-name --set key1=value1,key2=value2
+```
 
-Generate index.yaml:
+### Upgrade or Uninstall
 ```shell
-helm repo index .
+# Upgrade
+helm upgrade my-release-name my-repo-name/chart-name
+```
+```bash
+# Uninstall
+helm uninstall my-release-name
 ```

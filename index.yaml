@@ -1,9 +1,20 @@
 apiVersion: v1
 entries:
+  app_chart:
+  - apiVersion: v2
+    appVersion: 0.1.2
+    created: "2023-12-22T10:39:39.287861596+02:00"
+    description: Frontback And Backend (Local PSQL DB) are successfully running.
+    digest: 1bb17c6a39925e1eef300502c702deca70a43ecd432acf76df4a981383f3ed26
+    name: app_chart
+    type: application
+    urls:
+    - packages/app_chart-0.0.2.tgz
+    version: 0.0.2
   fe_be_chart:
   - apiVersion: v2
     appVersion: 0.1.2
-    created: "2023-12-19T17:52:36.695585415+02:00"
+    created: "2023-12-22T10:39:39.28844584+02:00"
     description: A Helm chart for Kubernetes, Frontback And Backend are successfully
       running.
     digest: 89a5876477a32a2798c880d99792af918beecfef34d4a79750eddba39244ad18
@@ -12,4 +23,4 @@ entries:
     urls:
     - packages/fe_be_chart-0.0.1.tgz
     version: 0.0.1
-generated: "2023-12-19T17:52:36.694870522+02:00"
+generated: "2023-12-22T10:39:39.287113543+02:00"
