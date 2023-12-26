@@ -2,8 +2,8 @@
 
 appName: class-schedule
 serviceName: backend-service
-namespace: app
-replicasCount: 1
+namespace: consul
+replicasCount: 2
 backend_image:
   name: stratiiv/devops-team-green
   tag: v1
@@ -19,3 +19,10 @@ mongodb:
 redis:
   host: "localhost"
   port: 6379
+
+
+# Frontend
+#namespace: consul
+frontend_image:
+  name: nexus.green-team-schedule.pp.ua/frontend
+  tag: 1.0.1

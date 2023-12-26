@@ -77,17 +77,6 @@ spec:
           ports:
             - containerPort: 6379
 
-        - name: postgres
-          image: "postgres:14-alpine"
-          ports:
-            - containerPort: 5432
-          env:
-             - name: "POSTGRES_DB"
-               value: "schedule"
-             - name: "POSTGRES_USER"
-               value: "schedule"
-             - name: "POSTGRES_PASSWORD"
-               value: "schedule"
 ---
 apiVersion: consul.hashicorp.com/v1alpha1
 kind: ServiceDefaults
