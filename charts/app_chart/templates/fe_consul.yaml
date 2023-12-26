@@ -18,14 +18,14 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: frontend
-  namespace: app
+  namespace: {{ .Values.namespace }}
 automountServiceAccountToken: true
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend-deployment
-  namespace: app
+  namespace: {{ .Values.namespace }}
   labels:
     app: frontend
 spec:
@@ -56,6 +56,6 @@ apiVersion: consul.hashicorp.com/v1alpha1
 kind: ServiceDefaults
 metadata:
   name: frontend # will be in serv.consul
-  namespace: app
+  namespace: {{ .Values.namespace }}
 spec:
   protocol: "http"
