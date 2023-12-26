@@ -27,7 +27,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend-deployment
-  namespace: app
+  namespace: {{ .Values.namespace }}
   labels:
     app: backend
 spec:
@@ -46,19 +46,19 @@ spec:
       serviceAccountName: backend
       containers:
         - name: backend
-          image: stratiiv/devops-team-green:latest
+          image: "{{ .Values.backend_image.name }}:{{ .Values.backend_image.tag }}"
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
           env:
             - name: "PG_HOST"
-              value: "localhost"
+              value: {{ .Values.postgres.db_host }}
             - name: "PG_PORT"
-              value: "5432"
+              value: {{ .Values.postgres.port | quote }}
             - name: "PG_DB_NAME"
-              value: "schedule"
+              value: {{ .Values.postgres.db_name }}
             - name: "PG_USER"
-              value: "schedule"
+              value: {{ .Values.postgres.db_user }}
             - name: "PG_PASS"
               value: "schedule"
             - name: "REDIS_HOST"

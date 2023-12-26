@@ -51,8 +51,7 @@ connectInject:
   apiGateway:
     managedGatewayClass:
       serviceType: LoadBalancer
-controller:
-  enabled: true
+
 
 # Reach Other DC
 #meshGateway:
