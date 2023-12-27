@@ -1,26 +1,36 @@
 apiVersion: v1
 entries:
-  app_chart:
+  api-gateway:
   - apiVersion: v2
-    appVersion: 0.1.2
-    created: "2023-12-22T10:39:39.287861596+02:00"
-    description: Frontback And Backend (Local PSQL DB) are successfully running.
-    digest: 1bb17c6a39925e1eef300502c702deca70a43ecd432acf76df4a981383f3ed26
-    name: app_chart
+    appVersion: 1.0.0
+    created: "2023-12-27T10:38:58.604703998+02:00"
+    description: A Helm chart for Consul Config
+    digest: ac1b4a0836226d7601b07ed609d9f59ae93950ebddf2e9d717e9ac4b79d849bf
+    name: api-gateway
     type: application
     urls:
-    - packages/app_chart-0.0.2.tgz
-    version: 0.0.2
-  fe_be_chart:
+    - packages/api-gateway-0.1.1.tgz
+    version: 0.1.1
+  backend:
   - apiVersion: v2
-    appVersion: 0.1.2
-    created: "2023-12-22T10:39:39.28844584+02:00"
-    description: A Helm chart for Kubernetes, Frontback And Backend are successfully
-      running.
-    digest: 89a5876477a32a2798c880d99792af918beecfef34d4a79750eddba39244ad18
-    name: fe_be_chart
+    appVersion: 1.2.0
+    created: "2023-12-27T10:38:58.605268946+02:00"
+    description: Backend chart for Consul
+    digest: 6acb9a4d777d834a41bfc8fb67da5e17f6555e9d8607d1385415548a2daa6bb8
+    name: backend
     type: application
     urls:
-    - packages/fe_be_chart-0.0.1.tgz
-    version: 0.0.1
-generated: "2023-12-22T10:39:39.287113543+02:00"
+    - packages/backend-0.1.1.tgz
+    version: 0.1.1
+  frontend:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2023-12-27T10:38:58.60584103+02:00"
+    description: Frontend chart for Consul
+    digest: ee9ca0c711c15a13b29d9d88fc7573a9da922d41fef323341e4f2140a8c41fa1
+    name: frontend
+    type: application
+    urls:
+    - packages/frontend-0.1.1.tgz
+    version: 0.1.1
+generated: "2023-12-27T10:38:58.60423997+02:00"

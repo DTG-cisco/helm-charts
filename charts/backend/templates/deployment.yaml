@@ -1,4 +1,3 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -40,11 +39,11 @@ spec:
             - name: "REDIS_HOST"
               value: {{ .Values.redis.host }}
             - name: "REDIS_PORT"
-              value: {{ .Values.redis.port }}
+              value: {{ .Values.redis.port | quote }}
             - name: "MONGO_HOST"
               value: {{ .Values.mongodb.host }}
             - name: "MONGO_PORT"
-              value: {{ .Values.mongodb.port }}
+              value: {{ .Values.mongodb.port | quote }}
             - name: "MONGO_DB_NAME"
               value: {{ .Values.mongodb.db_name }}
 

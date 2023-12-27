@@ -1,7 +1,8 @@
 ## Helm Chart Repositories for Kubernetes
 
 ### List of available Charts in this repo:
-- ### [Frontend and Backend Chart for consul](charts/app_chart/Readme.md)
+- ### [Frontend Chart for consul](charts/frontend/Readme.md)
+- ### [Backend Chart for consul](charts/backend/Readme.md)
 - ### [Consul Configs](charts/consul_conf)
 
 ## How to use
@@ -18,10 +19,10 @@ helm search repo schedule-app
 ```
 In list of available versions select needed:
 
-| NAME                     | CHART VERSION | APP VERSION | DESCRIPTION                                        | 
-|--------------------------|---------------|-------------|----------------------------------------------------|
-| schedule-app/app_chart   | 0.0.2         | 0.1.2       | Frontback And Backend (Local PSQL DB) are succe... |
-| schedule-app/fe_be_chart | 0.0.1         | 0.1.2       | A Helm chart for Kubernetes, Frontback And Back... |
+| NAME                  | CHART VERSION | APP VERSION | DESCRIPTION                                        | 
+|-----------------------|---------------|-------------|----------------------------------------------------|
+| schedule-app/frontend | 0.0.2         | 0.1.2       | Frontback And Backend (Local PSQL DB) are succe... |
+| schedule-app/backend  | 0.0.1         | 0.1.2       | A Helm chart for Kubernetes, Frontback And Back... |
 
 
 ### Install the Chart
