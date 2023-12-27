@@ -1,4 +1,5 @@
 #https://developer.hashicorp.com/consul/tutorials/kubernetes/kubernetes-deployment-guide
+# https://github.com/hashicorp/consul-k8s/blob/main/charts/consul/values.yaml
 # Enable and configure the Consul UI.
 ui:
   enabled: true
@@ -27,22 +28,6 @@ server:
   enabled: true
   # The number of server agents to run. This determines the fault tolerance of the cluster.
   replicas: 3
-
-  # Specify the resources that servers request for placement. These values will serve a large environment.
-#  resources:
-#    requests:
-#      memory: '32Gi'
-#      cpu: '4'
-#      disk: '30Gi'
-#    limits:
-#      memory: '32Gi'
-#      cpu: '4'
-#      disk: '50Gi'
-  # If using Enterprise, reference the Kubernetes secret that holds your license here
-#  enterpriseLicense:
-#    secretName: 'consul-license'
-#    secretKey: 'key'
-# Configure Consul clients in this section
 
 # Enable Consul connect pod injection
 connectInject:

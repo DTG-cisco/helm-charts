@@ -3,7 +3,7 @@
 ### List of available Charts in this repo:
 - ### [Frontend Chart for consul](charts/frontend/Readme.md)
 - ### [Backend Chart for consul](charts/backend/Readme.md)
-- ### [Consul Configs](charts/consul_conf)
+- ### [Consul API Gateway](charts/api-gateway/readme.md)
 
 -----------------------------------
 ## How to use
