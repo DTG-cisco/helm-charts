@@ -5,6 +5,7 @@
 - ### [Backend Chart for consul](charts/backend/Readme.md)
 - ### [Consul Configs](charts/consul_conf)
 
+-----------------------------------
 ## How to use
 You can follow [Helm Docs](https://helm.sh/docs/intro/quickstart/) 
 
@@ -26,9 +27,11 @@ In list of available versions select needed:
 
 
 ### Install the Chart
-```shell
+```text
 helm install <my-release-name> <my-repo-name>/<chart-name>
-helm install ver2 schedule-app/app_chart
+```
+```shell
+helm install front schedule-app/frontend
 ```
 
 ### Configuration
@@ -43,5 +46,5 @@ helm upgrade my-release-name my-repo-name/chart-name
 ```
 ```bash
 # Uninstall
-helm uninstall my-release-name
+helm uninstall front
 ```

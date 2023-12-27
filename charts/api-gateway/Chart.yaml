@@ -1,6 +1,6 @@
 apiVersion: v2
 name: api-gateway
-description: A Helm chart for Consul Config
+description: API Gateway for Consul
 
 # A chart can be either an 'application' or a 'library' chart.
 #

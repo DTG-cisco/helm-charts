@@ -8,21 +8,20 @@ The chart can be utilized either manually or in conjunction with Terragrunt.
 
 ### Add Helm Repository
 ```bash
-helm repo add my-consul  https://dtg-cisco.github.io/helm-charts/
+helm repo add schedule-app  https://dtg-cisco.github.io/helm-charts/
 ```
 #### Get list of available versions:
 ```shell
-helm search repo my-consul
+helm search repo schedule-app
 ```
-| NAME               | CHART VERSION | APP VERSION | DESCRIPTION                                        | 
-|--------------------|---------------|-------------|----------------------------------------------------|
-| my-consul/frontend | 0.0.1         | 0.1.2       | A Helm chart for Kubernetes, Frontback And Back... |
+| NAME                  | CHART VERSION | APP VERSION | DESCRIPTION               | 
+|-----------------------|---------------|-------------|---------------------------|
+| schedule-app/frontend | 0.0.1         | 0.1.2       | Frontend chart for Consul |
 
 
 ### Install the Chart
 ```shell
-helm install my-release-name my-repo-name/chart-name
-helm install my-release-name charts/frontend
+helm install front schedule-app/frontend
 ```
 
 ### Configuration
@@ -36,7 +35,7 @@ helm install my-release-name my-repo-name/chart-name --set key1=value1,key2=valu
 helm upgrade my-release-name my-repo-name/chart-name
 
 # Uninstall
-helm uninstall my-release-name
+helm uninstall front
 ```
 
 ------------------------------
