@@ -1,0 +1,4 @@
+Successfully installed the Consul Backend Part! (Green Team)
+Please note: The Backend service is using the image "{{ .Values.frontend_image.name }}:{{ .Values.frontend_image.tag }}" with the following configurations:
+
+For more information or custom configurations, please check the Helm chart values.yaml or documentation.

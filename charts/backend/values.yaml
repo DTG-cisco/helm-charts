@@ -1,17 +1,25 @@
-# Default values for app_chart Backend.
-
+# Default values for backend.
 appName: class-schedule
-serviceName: backend-service
-namespace: app
-replicasCount: 1
+serviceName: backend
+service:
+  type: ClusterIP
+  port: 8080
+
+namespace: consul
+deployment:
+  replicasCount: 2
+
 backend_image:
   name: stratiiv/devops-team-green
   tag: v1
+  pullPolicy: IfNotPresent
+
 postgres:
   db_host: "localhost"
   port: 5432
   db_name: "schedule"
   db_user: "schedule"
+  db_password: ""
 mongodb:
   host: "localhost"
   port: 27017

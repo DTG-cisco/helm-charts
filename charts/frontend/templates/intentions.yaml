@@ -1,9 +1,8 @@
----
 apiVersion: consul.hashicorp.com/v1alpha1
 kind: ServiceIntentions
 metadata:
   name: frontend
-  namespace: app
+  namespace: {{ .Values.namespace }}
 
 spec:
   destination:
