@@ -1,0 +1,12 @@
+# Frontend
+service:
+  name: frontend
+  type: ClusterIP
+  port: 80
+
+
+namespace: consul
+frontend_image:
+  name: vitalikys/frontend
+#  name: nexus.green-team-schedule.pp.ua/frontend
+  tag: 1.0.1

@@ -1,28 +1,4 @@
 ---
-apiVersion: v1
-kind: Service
-metadata:
-  name: backend
-  namespace: {{ .Values.namespace }}
-  labels:
-    app: backend
-spec:
-  type: ClusterIP
-  ports:
-    - name: http
-      protocol: TCP
-      port: 8080
-      targetPort: 8080
-  selector:
-    app: backend
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: backend
-  namespace: {{ .Values.namespace }}
-automountServiceAccountToken: true
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -31,7 +7,7 @@ metadata:
   labels:
     app: backend
 spec:
-  replicas: 2
+  replicas: {{ .Values.deployment.replicasCount }}
   selector:
     matchLabels:
       app: backend
@@ -41,13 +17,13 @@ spec:
         app: backend
       annotations:
         consul.hashicorp.com/connect-inject: "true"
-#        consul.hashicorp.com/transparent-proxy: "false"
+        consul.hashicorp.com/transparent-proxy: "true"
     spec:
       serviceAccountName: backend
       containers:
         - name: backend
           image: "{{ .Values.backend_image.name }}:{{ .Values.backend_image.tag }}"
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: {{ .Values.backend_image.pullPolicy }}
           ports:
             - containerPort: 8080
           env:
@@ -60,28 +36,19 @@ spec:
             - name: "PG_USER"
               value: {{ .Values.postgres.db_user }}
             - name: "PG_PASS"
-              value: "schedule"
+              value: {{ .Values.postgres.db_password }}
             - name: "REDIS_HOST"
-              value: "localhost"
+              value: {{ .Values.redis.host }}
             - name: "REDIS_PORT"
-              value: "6379"
+              value: {{ .Values.redis.port }}
             - name: "MONGO_HOST"
-              value: "localhost"
+              value: {{ .Values.mongodb.host }}
             - name: "MONGO_PORT"
-              value: "27017"
+              value: {{ .Values.mongodb.port }}
             - name: "MONGO_DB_NAME"
-              value: "schedules"
+              value: {{ .Values.mongodb.db_name }}
 
         - name: redis
           image: "redis:7-alpine"
           ports:
             - containerPort: 6379
-
----
-apiVersion: consul.hashicorp.com/v1alpha1
-kind: ServiceDefaults
-metadata:
-  name: backend # will be in serv.consul
-  namespace: {{ .Values.namespace }}
-spec:
-  protocol: "http"
