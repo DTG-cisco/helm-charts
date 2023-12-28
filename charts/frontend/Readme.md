@@ -52,3 +52,5 @@ Generate index.yaml:
 ```shell
 helm repo index . 
 ```
+
+Add and push new packages to Git Repository 

@@ -19,6 +19,8 @@ spec:
         consul.hashicorp.com/transparent-proxy: "true"
     spec:
       serviceAccountName: frontend
+      imagePullSecrets:
+        - name: nexus-token
       containers:
         - name: frontend
           image: "{{ .Values.frontend_image.name }}:{{ .Values.frontend_image.tag }}"

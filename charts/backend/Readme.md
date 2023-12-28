@@ -43,9 +43,9 @@ helm uninstall back
 
 Make package from Chart to .tgz zip
 ```shell
-helm package charts/app_chart/ -d  packages/
+helm package charts/backend/ -d  packages/
 ```
-Successfully packaged chart and saved it to: packages/fe_be_chart-0.0.1.tgz
+Output: Successfully packaged chart and saved it to: packages/backend-0.1.2.tgz
 
 
 Generate index.yaml:

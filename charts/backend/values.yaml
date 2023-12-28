@@ -27,3 +27,6 @@ mongodb:
 redis:
   host: "localhost"
   port: 6379
+
+nexus:
+  token: "my_secret_token"

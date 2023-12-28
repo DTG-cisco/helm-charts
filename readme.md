@@ -5,6 +5,12 @@
 - ### [Backend Chart for consul](charts/backend/Readme.md)
 - ### [Consul API Gateway](charts/api-gateway/readme.md)
 
+### Using Docker Images from Nexus Private Repo
+To ensure secure and controlled access to Docker images, our system relies on a **Nexus Private Repository**.
+We've configured secrets within the Backend Helm chart to facilitate secure communication and access to these images. This approach ensures a robust and controlled 
+deployment process while maintaining the confidentiality and integrity of our Docker images.
+For access to Nexus Repository we are using `Google Secret Manager`, Key=nexus_token
+
 -----------------------------------
 ## How to use
 You can follow [Helm Docs](https://helm.sh/docs/intro/quickstart/) 

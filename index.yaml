@@ -3,7 +3,7 @@ entries:
   api-gateway:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2023-12-27T17:52:55.312060609+02:00"
+    created: "2023-12-28T12:03:15.985426927+02:00"
     description: A Helm chart for Consul Config
     digest: ac1b4a0836226d7601b07ed609d9f59ae93950ebddf2e9d717e9ac4b79d849bf
     name: api-gateway
@@ -14,7 +14,17 @@ entries:
   backend:
   - apiVersion: v2
     appVersion: 1.2.0
-    created: "2023-12-27T17:52:55.312873329+02:00"
+    created: "2023-12-28T12:03:15.986372814+02:00"
+    description: Backend chart for Consul, Token Added
+    digest: 372ee273094b7198592db52eb139588e7e32a5680f940e133e3610276dba0280
+    name: backend
+    type: application
+    urls:
+    - packages/backend-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 1.2.0
+    created: "2023-12-28T12:03:15.985881201+02:00"
     description: Backend chart for Consul
     digest: 6acb9a4d777d834a41bfc8fb67da5e17f6555e9d8607d1385415548a2daa6bb8
     name: backend
@@ -25,7 +35,17 @@ entries:
   frontend:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2023-12-27T17:52:55.313982814+02:00"
+    created: "2023-12-28T12:03:15.988130229+02:00"
+    description: Frontend chart for Consul, Token Added
+    digest: 5697e536a59cd24bfbfea9e9297b964957dd9e8d0e659e98760fd38280304ba5
+    name: frontend
+    type: application
+    urls:
+    - packages/frontend-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2023-12-28T12:03:15.987567389+02:00"
     description: Frontend chart for Consul, Notes-Fixed
     digest: ca9a13806328ea4f4030de5fa15e7605a91df2fd6f202651e3ecd6fa34d07c77
     name: frontend
@@ -35,7 +55,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2023-12-27T17:52:55.313558364+02:00"
+    created: "2023-12-28T12:03:15.986945548+02:00"
     description: Frontend chart for Consul
     digest: ee9ca0c711c15a13b29d9d88fc7573a9da922d41fef323341e4f2140a8c41fa1
     name: frontend
@@ -43,4 +63,4 @@ entries:
     urls:
     - packages/frontend-0.1.1.tgz
     version: 0.1.1
-generated: "2023-12-27T17:52:55.311332145+02:00"
+generated: "2023-12-28T12:03:15.984947826+02:00"
