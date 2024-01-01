@@ -15,7 +15,7 @@ backend_image:
   pullPolicy: IfNotPresent
 
 postgres:
-  db_host: "localhost"
+  db_host: "10.97.52.3"
   port: 5432
   db_name: "schedule"
   db_user: "schedule"
