@@ -1,0 +1,10 @@
+apiVersion: consul.hashicorp.com/v1alpha1
+kind: PeeringAcceptor
+metadata:
+  name: azure-dev
+spec:
+  peer:
+    secret:
+      name: "peering-token-azure-dev"
+      key: "data"
+      backend: "kubernetes"
